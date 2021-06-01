@@ -18,7 +18,7 @@
         </div>
         <div class="right"></div>
       </div>
-      <div class="boxed counter">
+      <div class="boxed d-none d-md-block counter">
         <div>
           <h2>2179+</h2>
           <p>Number of publications</p>
@@ -55,6 +55,7 @@ export default {};
   @include mobile {
     min-height: 60vh;
     height: 80%;
+    background-position: center;
   }
   .link {
     text-decoration: none;

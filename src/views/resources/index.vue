@@ -55,13 +55,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../../styles/global.scss";
 label {
   font-size: 0.8rem;
 }
 
 button.btn1 {
-  width: 40vw !important;
+  width: 40vw;
   height: 4rem;
+  @include mobile {
+    min-width: 44vw;
+  }
 }
 .btn-light {
   background-color: rgb(224, 224, 224);

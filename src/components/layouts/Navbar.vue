@@ -22,7 +22,7 @@
         class="collapse navbar-collapse align-items-center"
         id="navbarSupportedContent"
       >
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav ml-auto bg-light">
           <li class="nav-item">
             <router-link to="#" class="link nav-link">
               About

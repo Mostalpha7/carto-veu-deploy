@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="topFooter">
+  <div class="">
+    <div class="topFooter boxed d-none d-md-block">
       <div class="row justify-content-center">
         <div class="col-md-9">
           <div class="row justify-content-center">
@@ -68,11 +68,11 @@
       </div>
     </div>
 
-    <div class="boxed py-5">
-      <div class="row justify-content-center ">
+    <div class="boxed py-md-5 pt-4 pb-2">
+      <div class="row boxed justify-content-center ">
         <div class="col-md">
           <div class="row no-gutters justify-content-center align-items-center">
-            <div class="col-md-3">
+            <div class="col-md-3 mb-4">
               <img src="../../assets/logo.png" alt="" />
             </div>
             <div class="col-md-3">
@@ -105,7 +105,7 @@
         </div>
       </div>
     </div>
-    <div class="footerBottom pt-2">
+    <div class="footerBottom text-center py-2">
       <div class="container">
         <div class="row justify-content-between">
           <div class="col-md-5">

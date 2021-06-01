@@ -7,8 +7,8 @@
 
         <FilterBody />
       </div>
-      <div class="py-5"></div>
-      <div class="py-5"></div>
+      <div class="py-5 d-none d-md-block"></div>
+      <div class="py-md-5 py-3"></div>
     </div>
   </div>
 </template>

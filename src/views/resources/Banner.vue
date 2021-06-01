@@ -19,6 +19,10 @@
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
+  @include mobile {
+    background-position: center;
+    height: 45vh;
+  }
   .left {
     flex: 1;
     h1 {
@@ -27,7 +31,7 @@
       font-size: 3rem;
       color: whitesmoke;
       @include mobile {
-        margin-top: calc(100vh - 80vh);
+        margin-top: calc(100vh - 85vh);
         font-size: 2rem;
       }
     }
@@ -39,6 +43,9 @@
   }
   .right {
     flex: 1;
+    @include mobile {
+      flex: 0;
+    }
   }
 }
 </style>

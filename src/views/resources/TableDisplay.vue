@@ -1,10 +1,10 @@
 <template>
   <div>
     <div class="boxed">
-      <div class="py-4">
-        <div class="p-4">
-          <div class="shadow card">
-            <div class="pt-4 px-2">
+      <div class="py-md-4">
+        <div class="p-md-4">
+          <div class="">
+            <div class="pt-md-4 px-2">
               <div class="row align-items-end">
                 <div class="form-group col-md-2">
                   <select id="inputState" class="form-control">
@@ -74,67 +74,72 @@
                 </div>
               </div>
             </div>
-            <div class="p-4">
-              <table class="table table-striped">
-                <thead>
-                  <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col">Location</th>
-                    <th scope="col">Home institution</th>
-                    <th scope="col">Study approach</th>
-                    <th scope="col">Study Design</th>
-                    <th scope="col">Gender</th>
-                    <th scope="col">Age category</th>
-                    <th scope="col">Scopus link</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="(item, index) of dataTable" :key="index">
-                    <td>{{ item.title }}</td>
-                    <td class="text-center text-capitalize">
-                      <span v-if="item.location">{{ item.location }}</span>
-                      <span v-else>---</span>
-                    </td>
-                    <td class="text-center text-capitalize">
-                      <span v-if="item.homeinstitution">
-                        {{ item.homeinstitution }}
-                      </span>
-                      <span v-else>
-                        ---
-                      </span>
-                    </td>
-                    <td class="text-center text-capitalize">
-                      <span v-if="item.studyApproach">{{
-                        item.studyApproach
-                      }}</span>
-                      <span v-else>---</span>
-                    </td>
-                    <td class="text-center text-capitalize">
-                      <span v-if="item.designNew">{{ item.designNew }}</span>
-                      <span v-else>---</span>
-                    </td>
-                    <td class="text-center text-capitalize">
-                      <span v-if="item.gender">
-                        {{ item.gender }}
-                      </span>
-                      <span v-else>---</span>
-                    </td>
-                    <td class="text-center text-capitalize">
-                      <span v-if="item.agecategory">
-                        {{ item.agecategory }}
-                      </span>
-                      <span v-else>
-                        ---
-                      </span>
-                    </td>
-                    <td class="text-center text-capitalize">
-                      <a :href="item.scopusID" class="nav-link" target="_blanck"
-                        >Link</a
-                      >
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
+            <div class="p-md-4">
+              <div class="table-responsive-sm">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th scope="col">Title</th>
+                      <th scope="col">Location</th>
+                      <th scope="col">Home institution</th>
+                      <th scope="col">Study approach</th>
+                      <th scope="col">Study Design</th>
+                      <th scope="col">Gender</th>
+                      <th scope="col">Age category</th>
+                      <th scope="col">Scopus link</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="(item, index) of dataTable" :key="index">
+                      <td>{{ item.title }}</td>
+                      <td class="text-center text-capitalize">
+                        <span v-if="item.location">{{ item.location }}</span>
+                        <span v-else>---</span>
+                      </td>
+                      <td class="text-center text-capitalize">
+                        <span v-if="item.homeinstitution">
+                          {{ item.homeinstitution }}
+                        </span>
+                        <span v-else>
+                          ---
+                        </span>
+                      </td>
+                      <td class="text-center text-capitalize">
+                        <span v-if="item.studyApproach">{{
+                          item.studyApproach
+                        }}</span>
+                        <span v-else>---</span>
+                      </td>
+                      <td class="text-center text-capitalize">
+                        <span v-if="item.designNew">{{ item.designNew }}</span>
+                        <span v-else>---</span>
+                      </td>
+                      <td class="text-center text-capitalize">
+                        <span v-if="item.gender">
+                          {{ item.gender }}
+                        </span>
+                        <span v-else>---</span>
+                      </td>
+                      <td class="text-center text-capitalize">
+                        <span v-if="item.agecategory">
+                          {{ item.agecategory }}
+                        </span>
+                        <span v-else>
+                          ---
+                        </span>
+                      </td>
+                      <td class="text-center text-capitalize">
+                        <a
+                          :href="item.scopusID"
+                          class="nav-link"
+                          target="_blanck"
+                          >Link</a
+                        >
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
               <div v-if="loading">
                 <div class="row justify-content-left">
                   <div class="col-md-12">

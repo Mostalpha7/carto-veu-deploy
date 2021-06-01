@@ -3,7 +3,7 @@
     <div class="py-5 partners">
       <h2 class="text-center">Our African Partners</h2>
       <div class="container">
-        <div class="row">
+        <div class="d-flex scrollhor">
           <div class="col-md-2">
             <img width="75" src="../../assets/partners/partner1.png" alt="" />
           </div>
@@ -31,8 +31,8 @@
         <div class="p-4 pb-5">
           <div class="pb-md-5">
             <h2 class="text-center pt-4">Our Funders</h2>
-            <div class="container py-5">
-              <div class="row">
+            <div class="container scrollhor py-5">
+              <div class="d-flex">
                 <div class="col-md-2">
                   <img
                     width="75"
@@ -83,4 +83,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.scrollhor {
+  overflow-x: scroll !important;
+}
+</style>
