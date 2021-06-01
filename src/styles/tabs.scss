@@ -1,0 +1,25 @@
+@import './global.scss';
+.tabs {
+    .nav-tabs .nav-item.show .nav-link,
+    .nav-tabs .nav-link {
+        border-bottom-left-radius: .25rem;
+        border-bottom-right-radius: .25rem;
+        color: black;
+        margin: .4rem .2rem;
+        font-size: .75rem;
+        background-color: white;
+        border-color: none;
+        text-align: center;
+        &.active {
+            color: white;
+            background-color: $yellow;
+            border-color: none;
+        }
+    }
+    .nav-tabs {
+        border-bottom: none;
+    }
+    .nav-tabs .nav-link:hover {
+        color: gray
+    }
+}

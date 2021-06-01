@@ -1,0 +1,14 @@
+$mainColor:#E6A709;
+$mainBlue:#17204A;
+$yellow: #EAB217;
+$black:#333333;
+$mutedBlack: #ECEDF3;
+$grey: #d7d8db;
+$blue: #676B92;
+$mobileWidth: 541px;
+// $width: 768px;
+@mixin mobile {
+    @media (max-width: $mobileWidth) {
+        @content
+    }
+}
