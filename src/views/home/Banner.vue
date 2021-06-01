@@ -18,22 +18,24 @@
         </div>
         <div class="right"></div>
       </div>
-      <div class="boxed d-none d-md-block counter">
-        <div>
-          <h2>2179+</h2>
-          <p>Number of publications</p>
-        </div>
-        <div>
-          <h2>183+</h2>
-          <p>Total authors</p>
-        </div>
-        <div>
-          <h2>24409+</h2>
-          <p>Total citations</p>
-        </div>
-        <div>
-          <h2>2.92</h2>
-          <p>Media impact factor of journals</p>
+      <div class="d-none d-md-block ">
+        <div class="boxed counter px-4">
+          <div>
+            <h2>2179+</h2>
+            <p>Number of publications</p>
+          </div>
+          <div>
+            <h2>183+</h2>
+            <p>Total authors</p>
+          </div>
+          <div>
+            <h2>24409+</h2>
+            <p>Total citations</p>
+          </div>
+          <div>
+            <h2>2.92</h2>
+            <p>Media impact factor of journals</p>
+          </div>
         </div>
       </div>
     </div>
@@ -72,10 +74,12 @@ export default {};
       margin-top: calc(100vh - 80vh);
       margin-bottom: 0.6rem;
       font-size: 3rem;
+      font-weight: 800;
       color: whitesmoke;
       @include mobile {
         margin-top: calc(100vh - 80vh);
         font-size: 2rem;
+        font-weight: 500;
       }
     }
     p {
