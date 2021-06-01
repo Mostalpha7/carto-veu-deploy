@@ -82,7 +82,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "../../styles/global.scss";
 .curveBorder {
   background-color: $mutedBlack;
@@ -90,6 +90,19 @@ export default {
   h4 {
     color: black;
     font-weight: 600;
+  }
+}
+
+.tabs {
+  .nav-item {
+    background-color: white;
+    margin-left: 0.4rem;
+    margin-bottom: 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.89rem;
+    .nav-link {
+      color: black;
+    }
   }
 }
 </style>

@@ -7,9 +7,10 @@
             <div class="pt-4 px-2">
               <div class="row align-items-end">
                 <div class="form-group col-md-2">
-                  <label for="inputState">Select Priority Area</label>
                   <select id="inputState" class="form-control">
-                    <option selected>Choose...</option>
+                    <option value="*" disabled selected
+                      >Select Priority Area</option
+                    >
                     <option value="mentalhealth">Mental Health</option>
                     <option value="foodsecurity">Food Security</option>
                     <option value="cancer">Cancer</option>
@@ -31,18 +32,16 @@
                   </select>
                 </div>
                 <div class="form-group col-md-2">
-                  <label for="inputState">Select Gender</label>
                   <select v-model="gender" id="inputState" class="form-control">
-                    <option value="*" selected>Choose...</option>
+                    <option value="*" selected disabled>Gender</option>
                     <option value="male">male</option>
                     <option value="female">female</option>
                     <option value="male&female">Both</option>
                   </select>
                 </div>
                 <div class="form-group col-md-2">
-                  <label for="inputState">Select Age Category</label>
                   <select v-model="agecategory" class="form-control">
-                    <option value="*" selected>Choose...</option>
+                    <option value="*" selected disabled>Age Category</option>
                     <option value="children">Children</option>
                     <option value="young & adolescents">
                       Young & Adolescents
@@ -52,9 +51,8 @@
                   </select>
                 </div>
                 <div class="form-group col-md-2">
-                  <label for="inputState">Select Study Approach</label>
                   <select v-model="studyApproach" class="form-control">
-                    <option value="*" selected>Choose...</option>
+                    <option value="*" selected disabled>Study Approach</option>
                     <option value="Mixed-mehods">Mixed-mehods</option>
                     <option value="quantitative">Quantitative</option>
                     <option value="qualitative">Qualitative</option>
@@ -63,10 +61,10 @@
                   </select>
                 </div>
                 <div class="form-group col-md-2">
-                  <label for="inputState">Select Location</label>
                   <select v-model="location" class="form-control">
-                    <option value="*">Choose</option>
+                    <option value="*" disabled selected>Location</option>
                     <option selected value="nigeria">Nigeria</option>
+                    <option selected value="tanzania">Tanzania</option>
                   </select>
                 </div>
                 <div class="form-group col-md-2">
@@ -92,25 +90,44 @@
                 </thead>
                 <tbody>
                   <tr v-for="(item, index) of dataTable" :key="index">
-                    <th scope="row">{{ item.title }}</th>
-                    <td>
+                    <td>{{ item.title }}</td>
+                    <td class="text-center text-capitalize">
                       <span v-if="item.location">{{ item.location }}</span>
-                      <span v-else>not available</span>
+                      <span v-else>---</span>
                     </td>
-                    <td>{{ item.homeinstitution }}</td>
-                    <td>
+                    <td class="text-center text-capitalize">
+                      <span v-if="item.homeinstitution">
+                        {{ item.homeinstitution }}
+                      </span>
+                      <span v-else>
+                        ---
+                      </span>
+                    </td>
+                    <td class="text-center text-capitalize">
                       <span v-if="item.studyApproach">{{
                         item.studyApproach
                       }}</span>
-                      <span v-else>not available</span>
+                      <span v-else>---</span>
                     </td>
-                    <td>
+                    <td class="text-center text-capitalize">
                       <span v-if="item.designNew">{{ item.designNew }}</span>
-                      <span v-else>not available</span>
+                      <span v-else>---</span>
                     </td>
-                    <td>{{ item.gender }}</td>
-                    <td>{{ item.agecategory }}</td>
-                    <td>
+                    <td class="text-center text-capitalize">
+                      <span v-if="item.gender">
+                        {{ item.gender }}
+                      </span>
+                      <span v-else>---</span>
+                    </td>
+                    <td class="text-center text-capitalize">
+                      <span v-if="item.agecategory">
+                        {{ item.agecategory }}
+                      </span>
+                      <span v-else>
+                        ---
+                      </span>
+                    </td>
+                    <td class="text-center text-capitalize">
                       <a :href="item.scopusID" class="nav-link" target="_blanck"
                         >Link</a
                       >
@@ -161,7 +178,7 @@ export default {
       location: "*",
       studyApproach: "*",
       agecategory: "*",
-      perpage: "5",
+      perpage: "50",
       url: "https://carta.wiseminds.cc",
       apiKey:
         "fsdjkahdgjhsfdshjfsdhjfbnsdeiwjuwyiuwoewjknsdfhvbjknsdjfbglksvajkbhdkgncvb",
@@ -216,5 +233,12 @@ export default {
 <style lang="scss">
 label {
   font-size: 0.8rem;
+}
+td {
+  font-size: 0.84rem;
+}
+
+th {
+  font-size: 0.9rem;
 }
 </style>
