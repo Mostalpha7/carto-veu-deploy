@@ -19,7 +19,9 @@
   h1 {
     padding-top: calc(100vh - 80vh);
     margin-bottom: 0.6rem;
-    font-size: 2rem;
+
+    font-size: 3rem;
+    font-weight: 800;
     color: whitesmoke;
     @include mobile {
       padding-top: calc(100vh - 80vh);

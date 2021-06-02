@@ -21,19 +21,19 @@
       <div class="d-none d-md-block ">
         <div class="boxed counter px-4">
           <div>
-            <h2>2179+</h2>
+            <h1>2179+</h1>
             <p>Number of publications</p>
           </div>
           <div>
-            <h2>183+</h2>
+            <h1>183+</h1>
             <p>Total authors</p>
           </div>
           <div>
-            <h2>24409+</h2>
+            <h1>24409+</h1>
             <p>Total citations</p>
           </div>
           <div>
-            <h2>2.92</h2>
+            <h1>2.92</h1>
             <p>Media impact factor of journals</p>
           </div>
         </div>
@@ -54,11 +54,14 @@ export default {};
   background-repeat: no-repeat;
   background-position: bottom bottom;
   height: 100%;
+  padding-top: calc(100vh - 80vh);
+
   @include mobile {
     min-height: 60vh;
     height: 80%;
     background-position: center;
   }
+
   .link {
     text-decoration: none;
     color: whitesmoke;
@@ -70,18 +73,7 @@ export default {};
   }
   .left {
     flex: 1;
-    h1 {
-      margin-top: calc(100vh - 80vh);
-      margin-bottom: 0.6rem;
-      font-size: 3rem;
-      font-weight: 800;
-      color: whitesmoke;
-      @include mobile {
-        margin-top: calc(100vh - 80vh);
-        font-size: 2rem;
-        font-weight: 500;
-      }
-    }
+
     p {
       color: whitesmoke;
       font-size: 1.25rem;
@@ -99,12 +91,24 @@ export default {};
   }
 }
 
+h1 {
+  margin-bottom: 0.6rem;
+  font-size: 3rem;
+  font-weight: 800;
+  color: whitesmoke;
+  @include mobile {
+    margin-top: calc(100vh - 80vh);
+    font-size: 2rem;
+    font-weight: 500;
+  }
+}
+
 .counter {
   padding: 1rem 0px;
   background-color: #063063;
   display: flex;
   justify-content: space-between;
-  h2 {
+  h1 {
     color: white;
     font-size: 2.1rem;
     text-align: center;
