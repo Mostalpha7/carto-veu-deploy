@@ -1,7 +1,7 @@
 <template>
   <div>
     <p class="font-weight-bold">Author fellows per host institution</p>
-    <GChart type="BarChart" :data="chartData" :options="chartOptions" />
+    <GChart type="PieChart" :data="chartData" :options="chartOptions" />
   </div>
 </template>
 
@@ -12,17 +12,7 @@ export default {
   components: { GChart },
   data() {
     return {
-      chartData: [
-        ["Year", "Before", "During", "After"],
-        ["2014", 1000, 400, 200],
-        ["2015", 1170, 460, 250],
-        ["2016", 660, 1120, 300],
-        ["2017", 1030, 540, 350],
-        ["2018", 1000, 400, 200],
-        ["2019", 1170, 460, 250],
-        ["2020", 660, 1120, 300],
-        ["2021", 1030, 540, 350],
-      ],
+      chartData: [["Task", "Hours per Day"]],
 
       chartOptions: {
         chart: {
@@ -38,6 +28,17 @@ export default {
         height: 340,
       },
     };
+  },
+  props: ["fellowsPerHostInstitution"],
+  created() {
+    this.fellowsPerHostInstitution.forEach((item) => {
+      let theArr = [];
+
+      let name = item._id == "" ? "Others" : item._id;
+      theArr.push(name, item.count);
+
+      this.chartData.push(theArr);
+    });
   },
 };
 </script>

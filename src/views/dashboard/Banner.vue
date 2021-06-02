@@ -2,7 +2,10 @@
   <div>
     <div class="dashboardBanner">
       <div class="positionCenter boxed">
-        <h1>BIBLIOMETRIC DASHBOARD</h1>
+        <h1>
+          BIBLIOMETRIC <br />
+          DASHBOARD
+        </h1>
       </div>
     </div>
   </div>

@@ -175,6 +175,8 @@
 
 <script>
 import axios from "axios";
+import { apiKey, baseUrl } from "@/resource.js";
+
 export default {
   data() {
     return {
@@ -184,9 +186,6 @@ export default {
       studyApproach: "*",
       agecategory: "*",
       perpage: "50",
-      url: "https://carta.wiseminds.cc",
-      apiKey:
-        "fsdjkahdgjhsfdshjfsdhjfbnsdeiwjuwyiuwoewjknsdfhvbjknsdjfbglksvajkbhdkgncvb",
 
       loading: true,
       currentPage: 0,
@@ -199,10 +198,10 @@ export default {
     async runFilter() {
       await axios
         .get(
-          `${this.url}/resource?perpage=${this.perpage}&gender=${this.gender}&location=${this.location}&studyApproach=${this.studyApproach}&ncd=0&page=${this.nextPage}`,
+          `${baseUrl}/resource?perpage=${this.perpage}&gender=${this.gender}&location=${this.location}&studyApproach=${this.studyApproach}&ncd=0&page=${this.nextPage}`,
           {
             headers: {
-              apiKey: this.apiKey,
+              apiKey: apiKey,
             },
           }
         )

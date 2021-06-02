@@ -7,37 +7,60 @@
 
 <script>
 import { GChart } from "vue-google-charts";
+import { colors } from "@/resource";
 
 export default {
   components: { GChart },
   data() {
     return {
-      chartData: [
-        ["Year", "Before", "During", "After"],
-        ["2014", 1000, 400, 200],
-        ["2015", 1170, 460, 250],
-        ["2016", 660, 1120, 300],
-        ["2017", 1030, 540, 350],
-        ["2018", 1000, 400, 200],
-        ["2019", 1170, 460, 250],
-        ["2020", 660, 1120, 300],
-        ["2021", 1030, 540, 350],
-      ],
+      chartData: [["Year", "Before", "During", "After"]],
 
       chartOptions: {
-        chart: {
-          title: "Company Performance",
-          subtitle: "Sales, Expenses, and Profit: 2014-2017",
-        },
         height: 500,
-        colors: ["#8E5301", "#EAB217", "#FBA16F"],
-        chartArea: { width: "70%", height: "80%", gridlines: "white" },
+        colors,
+        chartArea: { width: "70%", height: "70%", gridlines: "white" },
         enableInteractivity: true,
         orientation: "horizontal",
         vAxis: { format: "decimal" },
-        height: 340,
       },
+      startDate: 2010,
     };
+  },
+  props: ["publicationsPeryear"],
+  created() {
+    var before = [];
+
+    var during = [];
+    var after = [];
+
+    this.publicationsPeryear.forEach((item) => {
+      if (item.label === "before") {
+        before = item.data;
+      }
+
+      if (item.label === "during") {
+        during = item.data;
+      }
+      if (item.label === "after") {
+        after = item.data;
+      }
+    });
+
+    before.forEach((item, index) => {
+      let newArr = [];
+      this.startDate += 1;
+      // get the value for before/during/after
+      let beforeItem = before[index];
+      let duringItem = during[index];
+      let afterItem = after[index];
+      // newArr.push()
+      newArr.push(`${this.startDate}`);
+      newArr.push(beforeItem);
+      newArr.push(duringItem);
+      newArr.push(afterItem);
+
+      this.chartData.push(newArr);
+    });
   },
 };
 </script>

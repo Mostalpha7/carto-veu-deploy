@@ -3,62 +3,47 @@
     <div class="flexContainer my-3">
       <div class="left shadow card">
         <div class="card-body">
-          <div class="row">
+          <div v-if="topData" class="row">
             <div class="col-md-6 mb-2">
               <Card
                 imgPath="/dashboard/Asset4.png"
-                figure="2179"
+                :figure="topData.totalPublications"
                 desc="Number of publications"
               />
             </div>
             <div class="col-md-6 mb-2">
               <Card
                 imgPath="/dashboard/Asset3.png"
-                figure="149"
+                :figure="topData.totalAuthors"
                 desc="Total authors"
               />
             </div>
             <div class="col-md-6 mb-2">
               <Card
                 imgPath="/dashboard/Asset6.png"
-                figure="2179"
+                :figure="topData.numberofCitations"
                 desc="Total citations"
               />
             </div>
             <div class="col-md-6 mb-2">
               <Card
                 imgPath="/dashboard/Asset2.png"
-                figure="2.9"
+                :figure="topData.journalImpactFactor"
                 desc="Media impact factor of journals"
               />
             </div>
             <div class="col-md-6 mb-2">
               <Card
-                imgPath="/dashboard/Asset5.png"
-                figure="34.15%"
-                desc="% Papers with fellow as 1st author"
-              />
-            </div>
-
-            <div class="col-md-6 mb-2">
-              <Card
                 imgPath="/dashboard/Asset3.png"
-                figure="149"
-                desc="Median Proportion most cited of all publications "
+                :figure="topData.medianPaperCited"
+                desc="Median Paper Cited "
               />
             </div>
             <div class="col-md-6 mb-2">
               <Card
                 imgPath="/dashboard/Asset1.png"
-                figure="6"
-                desc="Median Number of times each paper was cited"
-              />
-            </div>
-            <div class="col-md-6 mb-2">
-              <Card
-                imgPath="/dashboard/Asset1.png"
-                figure="6"
-                desc="Proportion of research approach used"
+                :figure="topData.medianProportionOfMostSitedPublication"
+                desc="Median Proportion Of Most Sited Publication"
               />
             </div>
           </div>
@@ -66,16 +51,24 @@
       </div>
       <div class="right">
         <div class="card-body shadow card mb-2">
-          <BarChart />
+          <BarChart :publicationsPeryear="others.publicationsPeryear" />
         </div>
-        <div class="">
-          <div class="row">
-            <div class="col-md-6">
-              <PieChart class="shadow card p-2" />
-            </div>
-            <div class="col-md-6">
-              <PublishedJournal class="shadow card p-2" />
-            </div>
+      </div>
+    </div>
+    <div class="mb-3">
+      <div class="row">
+        <div class="col-md-6">
+          <div class="card-body shadow card">
+            <AuthorBar
+              :fellowsPerHostInstitution="others.fellowsPerHostInstitution"
+            />
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card-body shadow card">
+            <FellowsPerHomeInstitution
+              :fellowsPerHomeInstitution="others.fellowsPerHomeInstitution"
+            />
           </div>
         </div>
       </div>
@@ -84,24 +77,31 @@
     <div class="flexContainer mb-2">
       <div class="left shadow card">
         <div class="card-body">
-          <CoAuthorPie />
+          <PublishedJournal
+            :topJournalsPublished="others.topJournalsPublished"
+          />
         </div>
       </div>
-      <div class="right shadow card">
-        <div class="card-body">
-          <AuthorBar />
-        </div>
-      </div>
-    </div>
-    <div class="flexContainer">
-      <div class="right shadow card">
-        <div class="card-body">
-          <AuthorBar />
-        </div>
-      </div>
-      <div class="left shadow card">
-        <div class="card-body">
-          <CoAuthorPie />
+      <div class="right">
+        <PieChart
+          :proportionOfResearchApproachUsed="
+            others.proportionOfResearchApproachUsed
+          "
+          class="shadow card p-2 mb-2"
+        />
+        <div class="row">
+          <div class="col-md-6">
+            <PercentgePublications
+              :percentgePublications="others.percentgePublications"
+              class="shadow card p-2 mb-2"
+            />
+          </div>
+          <div class="col-md-6">
+            <PappersCoAutoredByCarter
+              :pappersCoAutoredByCarter="others.pappersCoAutoredByCarter"
+              class="shadow card p-2 mb-2"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -115,6 +115,9 @@ import PieChart from "./PieChart";
 import PublishedJournal from "./PublishedJournal";
 import CoAuthorPie from "./CoAuthorPie";
 import AuthorBar from "./AuthorBar";
+import FellowsPerHomeInstitution from "./FellowsPerHomeInstitution";
+import PercentgePublications from "./PercentgePublications";
+import PappersCoAutoredByCarter from "./PappersCoAutoredByCarter";
 export default {
   components: {
     Card,
@@ -123,10 +126,15 @@ export default {
     PublishedJournal,
     CoAuthorPie,
     AuthorBar,
+    FellowsPerHomeInstitution,
+    PercentgePublications,
+    PappersCoAutoredByCarter,
   },
   data() {
     return {};
   },
+  props: ["topData", "others"],
+  created() {},
 };
 </script>
 

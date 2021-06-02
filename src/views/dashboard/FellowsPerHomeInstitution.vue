@@ -1,8 +1,6 @@
 <template>
   <div>
-    <p class="font-weight-bold">
-      Proportion Of Research Approach Used
-    </p>
+    <p class="font-weight-bold">Author fellows per home institution</p>
     <GChart type="PieChart" :data="chartData" :options="chartOptions" />
   </div>
 </template>
@@ -10,6 +8,7 @@
 <script>
 import { GChart } from "vue-google-charts";
 import { colors } from "@/resource";
+
 export default {
   components: { GChart },
   data() {
@@ -17,17 +16,25 @@ export default {
       chartData: [["Task", "Hours per Day"]],
 
       chartOptions: {
-        colors: colors,
-        chartArea: { width: "200%", height: "200%", gridlines: "white" },
+        chart: {
+          title: "Company Performance",
+          subtitle: "Sales, Expenses, and Profit: 2014-2017",
+        },
+        height: 500,
+        colors,
+        chartArea: { width: "70%", height: "80%", gridlines: "white" },
         enableInteractivity: true,
+        orientation: "horizontal",
         vAxis: { format: "decimal" },
+        height: 340,
       },
     };
   },
-  props: ["proportionOfResearchApproachUsed"],
+  props: ["fellowsPerHomeInstitution"],
   created() {
-    this.proportionOfResearchApproachUsed.forEach((item) => {
+    this.fellowsPerHomeInstitution.forEach((item) => {
       let theArr = [];
+
       let name = item._id == "" ? "Others" : item._id;
       theArr.push(name, item.count);
 

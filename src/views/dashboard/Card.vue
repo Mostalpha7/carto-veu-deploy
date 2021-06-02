@@ -6,7 +6,7 @@
           <img width="25" :src="imgPath" alt="" />
         </div>
         <div>
-          <h4>{{ figure }}</h4>
+          <h4>{{ figure | textFilter }}</h4>
         </div>
       </div>
       <p>{{ desc }}</p>
@@ -17,6 +17,20 @@
 <script>
 export default {
   props: ["imgPath", "desc", "figure"],
+  filters: {
+    textFilter(val) {
+      var convertStr = val.toString();
+      var splitStr = convertStr.split(".");
+
+      if (splitStr.length === 1) {
+        return convertStr;
+      } else {
+        var firstStr = splitStr[0];
+        var secondStr = splitStr[1].slice(0, 2);
+        return `${firstStr}.${secondStr}`;
+      }
+    },
+  },
 };
 </script>
 
