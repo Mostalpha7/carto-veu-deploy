@@ -1,14 +1,5 @@
 <template>
   <div>
-    <div class="row mt-3 d-none">
-      <div class="col-md-4 mb-3">
-        <Card
-          imgPath="/dashboard/Asset5.png"
-          figure="34.15%"
-          desc="% Papers with fellow as 1st author"
-        />
-      </div>
-    </div>
     <div class="flexContainer my-3">
       <div class="left shadow card">
         <div class="card-body">
@@ -41,6 +32,13 @@
                 desc="Media impact factor of journals"
               />
             </div>
+            <div class="col-md-6 mb-2">
+              <Card
+                imgPath="/dashboard/Asset5.png"
+                figure="34.15%"
+                desc="% Papers with fellow as 1st author"
+              />
+            </div>
 
             <div class="col-md-6 mb-2">
               <Card
@@ -66,10 +64,44 @@
           </div>
         </div>
       </div>
+      <div class="right">
+        <div class="card-body shadow card mb-2">
+          <BarChart />
+        </div>
+        <div class="">
+          <div class="row">
+            <div class="col-md-6">
+              <PieChart class="shadow card p-2" />
+            </div>
+            <div class="col-md-6">
+              <PublishedJournal class="shadow card p-2" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flexContainer mb-2">
+      <div class="left shadow card">
+        <div class="card-body">
+          <CoAuthorPie />
+        </div>
+      </div>
       <div class="right shadow card">
         <div class="card-body">
-          <p>Publications per year</p>
-          <GChart type="BarChart" :data="chartData" :options="chartOptions" />
+          <AuthorBar />
+        </div>
+      </div>
+    </div>
+    <div class="flexContainer">
+      <div class="right shadow card">
+        <div class="card-body">
+          <AuthorBar />
+        </div>
+      </div>
+      <div class="left shadow card">
+        <div class="card-body">
+          <CoAuthorPie />
         </div>
       </div>
     </div>
@@ -78,38 +110,22 @@
 
 <script>
 import Card from "./Card";
-import { GChart } from "vue-google-charts";
-
+import BarChart from "./BarChart";
+import PieChart from "./PieChart";
+import PublishedJournal from "./PublishedJournal";
+import CoAuthorPie from "./CoAuthorPie";
+import AuthorBar from "./AuthorBar";
 export default {
-  components: { Card, GChart },
+  components: {
+    Card,
+    BarChart,
+    PieChart,
+    PublishedJournal,
+    CoAuthorPie,
+    AuthorBar,
+  },
   data() {
-    return {
-      chartData: [
-        ["Year", "Before", "During", "After"],
-        ["2014", 1000, 400, 200],
-        ["2015", 1170, 460, 250],
-        ["2016", 660, 1120, 300],
-        ["2017", 1030, 540, 350],
-        ["2018", 1000, 400, 200],
-        ["2019", 1170, 460, 250],
-        ["2020", 660, 1120, 300],
-        ["2021", 1030, 540, 350],
-      ],
-
-      chartOptions: {
-        chart: {
-          title: "Company Performance",
-          subtitle: "Sales, Expenses, and Profit: 2014-2017",
-        },
-        height: 500,
-        colors: ["#8E5301", "#EAB217", "#FBA16F"],
-        chartArea: { width: "70%", height: "80%", gridlines: "white" },
-        enableInteractivity: true,
-        orientation: "horizontal",
-        vAxis: { format: "decimal" },
-        height: 400,
-      },
-    };
+    return {};
   },
 };
 </script>

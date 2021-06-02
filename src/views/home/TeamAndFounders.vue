@@ -86,5 +86,10 @@ export default {
 <style lang="scss" scoped>
 .scrollhor {
   overflow-x: scroll !important;
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none !important;
+}
+.scrollhor::-webkit-scrollbar {
+  display: none;
 }
 </style>

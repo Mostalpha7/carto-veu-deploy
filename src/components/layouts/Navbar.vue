@@ -1,6 +1,6 @@
 <template>
   <div class="">
-    <nav class="navbar   boxed navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar  boxed navbar-expand-lg navbar-light bg-white">
       <a class="navbar-brand" href="#">
         <router-link to="/" class="link">
           <img src="../../assets/logo.png" alt="" />
@@ -22,7 +22,7 @@
         class="collapse navbar-collapse align-items-center"
         id="navbarSupportedContent"
       >
-        <ul class="navbar-nav ml-auto bg-light">
+        <ul class="navbar-nav ml-auto bg-white">
           <li class="nav-item">
             <router-link to="#" class="link nav-link">
               About
