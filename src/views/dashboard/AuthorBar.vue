@@ -15,11 +15,6 @@ export default {
       chartData: [["Task", "Hours per Day"]],
 
       chartOptions: {
-        chart: {
-          title: "Company Performance",
-          subtitle: "Sales, Expenses, and Profit: 2014-2017",
-        },
-        height: 500,
         colors,
         chartArea: { width: "70%", height: "80%", gridlines: "white" },
         enableInteractivity: true,

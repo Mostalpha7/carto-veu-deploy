@@ -39,12 +39,12 @@
                     class="form-select form-control"
                   >
                     <option value="*" selected>Age Category</option>
+                    <option value="adults">Adults</option>
                     <option value="children">Children</option>
+                    <option value="elderly">Elderly</option>
                     <option value="young &amp;adolescents">
                       Young &amp; Adolescents
                     </option>
-                    <option value="elderly">Elderly</option>
-                    <option value="adults">Adults</option>
                   </select>
                 </div>
                 <div class="form-group col-md-2">
@@ -52,12 +52,12 @@
                     v-model="studyApproach"
                     class="form-select form-control"
                   >
-                    <option value="*" selected>Study Approach</option>
                     <option value="Mixed-mehods">Mixed-mehods</option>
+                    <option value="review">Review</option>
+                    <option value="*" selected>Study Approach</option>
                     <option value="quantitative">Quantitative</option>
                     <option value="qualitative">Qualitative</option>
                     <option value="systematic">Systematic</option>
-                    <option value="review">Review</option>
                   </select>
                 </div>
                 <div class="form-group col-md-2">
@@ -67,21 +67,21 @@
                     class="form-select form-control"
                   >
                     <option value="*" selected>Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
                     <option value="*">Both</option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
                   </select>
                 </div>
                 <div class="form-group col-md-2">
                   <select v-model="location" class="form-select form-control">
                     <option value="*" selected>Location</option>
-                    <option selected value="nigeria">Nigeria</option>
-                    <option selected value="uganda">Uganda</option>
-                    <option selected value="south africa">South Africa</option>
+                    <option selected value="afghanistan">Afghanistan</option>
                     <option selected value="kenya">Kenya</option>
                     <option selected value="malawi">Malawi</option>
-                    <option selected value="afghanistan">Afghanistan</option>
+                    <option selected value="nigeria">Nigeria</option>
                     <option selected value="rwanda">Rwanda</option>
+                    <option selected value="south africa">South Africa</option>
+                    <option selected value="uganda">Uganda</option>
                   </select>
                 </div>
                 <div class="form-group col-md-2">

@@ -1,7 +1,7 @@
 <template>
-  <div class="card shadow border-0 p-0">
-    <div class="card-body mb-0 pb-0 px-2">
-      <div class="d-flex align-items-center justify-content-between mb-3">
+  <div class="card  p-1">
+    <div class="card-body mb-0 pb-0 px-0">
+      <div class="d-flex align-items-center justify-content- mb-3">
         <div>
           <img width="50" :src="imgPath" alt="" />
         </div>

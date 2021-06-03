@@ -2,7 +2,7 @@
   <div>
     <div>
       <div class="2flexContainer2 my-3 row">
-        <div class="col-md-4 shadow card px-2">
+        <div class="col-md-4 shadow card px-1">
           <div class="card-body px-2">
             <div
               class="d-flex align-items-between justify-content-between flex-column allHeight"

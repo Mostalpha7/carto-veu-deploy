@@ -92,13 +92,14 @@
           </select>
         </div>
         <div class="form-group col-md-2">
-          <input
+          <!-- <input
             class="form-control bg-warning  "
             type="submit"
             name="filter"
             placeholder="Filter"
             @click="Search"
-          />
+          /> -->
+          <button class="btn btn-warning">Filter</button>
         </div>
       </div>
     </div>
@@ -167,7 +168,7 @@ export default {
 
 .form-group {
   .btn {
-    min-width: 200px;
+    min-width: 80%;
     background-color: #e6a709;
     border: none;
   }

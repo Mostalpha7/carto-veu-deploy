@@ -3,7 +3,7 @@
     <p class="font-weight-bold">Top five Journals fellows publish</p>
     <div>
       <div
-        class="mb-1"
+        class="mb-md-4 mb-2"
         v-for="(item, index) of topJournalsPublished"
         :key="index"
       >
