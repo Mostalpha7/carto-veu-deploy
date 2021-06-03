@@ -8,6 +8,7 @@
           v-on:cohort="Cohort"
           v-on:hostInstitituioninstitutionof="HostInstitituioninstitutionof"
           v-on:search="Search"
+          v-on:homeinstitution="Homeinstitution"
         />
 
         <Loading v-if="loading" class="my-5 text-center" />
@@ -41,6 +42,7 @@ export default {
       gender: "*",
       cohort: "*",
       hostInstitituioninstitutionof: "*",
+      homeinstitution: "*",
       loading: true,
     };
   },
@@ -49,7 +51,7 @@ export default {
     async loadData() {
       await axios
         .get(
-          `${baseUrl}/analytics?gender=${this.gender}&cohort=*&hostInstitituioninstitutionof=${this.hostInstitituioninstitutionof}`,
+          `${baseUrl}/analytics?fellowGender=${this.gender}&cohort=${this.cohort}&hostInstitituioninstitutionof=${this.hostInstitituioninstitutionof}&homeinstitution=${this.homeinstitution}`,
           {
             headers: {
               apiKey: apiKey,
@@ -70,6 +72,8 @@ export default {
           this.others.percentgePublications = result.percentgePublications;
           this.others.pappersCoAutoredByCarter =
             result.pappersCoAutoredByCarter;
+
+          console.log(this.others.publicationsPeryear);
 
           this.topData.totalPublications = result.totalPublications;
           this.topData.totalAuthors = result.totalAuthors;
@@ -95,6 +99,9 @@ export default {
     },
     HostInstitituioninstitutionof(val) {
       this.hostInstitituioninstitutionof = val;
+    },
+    Homeinstitution(val) {
+      this.homeinstitution = val;
     },
   },
   created() {

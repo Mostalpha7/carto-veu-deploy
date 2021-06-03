@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="">
     <p class="font-weight-bold">
       Proportion Of Research Approach Used
     </p>

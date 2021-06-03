@@ -3,10 +3,8 @@
     <div class="dashboardBanner boxed">
       <div class="left">
         <div class="banner-content">
-            <h1>Bibliometric <br>Dashboard</h1>
-       
-          </div>
-        
+          <h1>Bibliometric <br />Dashboard</h1>
+        </div>
       </div>
       <div class="right"></div>
     </div>
@@ -17,7 +15,8 @@
 @import "../../styles/global.scss";
 .dashboardBanner {
   background-image: url(../../assets/resources/banner.png);
-  height: 300px;
+  height: 330px;
+  margin-top: -2vh;
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -28,26 +27,25 @@
   .left {
     flex: 1;
     .banner-content {
-        position: relative;
-        top: 30%;
-        left: 7%;
-        max-width: 400px;
-        h1 {
-          margin-bottom: 0.6rem;
-          font-size: 3rem;
-          font-weight: 700;
-          color: whitesmoke;
-          @include mobile {
-            font-size: 2rem;
-          }
+      position: relative;
+      top: 30%;
+      left: 7%;
+      max-width: 400px;
+      h1 {
+        margin-bottom: 0.6rem;
+        font-size: 3rem;
+        font-weight: 700;
+        color: whitesmoke;
+        @include mobile {
+          font-size: 2rem;
         }
-        p {
-          color: whitesmoke;
-          font-size: 1.25rem;
-          margin-bottom: 1rem;
-        }
-  }
-    
+      }
+      p {
+        color: whitesmoke;
+        font-size: 1.25rem;
+        margin-bottom: 1rem;
+      }
+    }
   }
   .right {
     flex: 1;

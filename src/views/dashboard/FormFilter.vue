@@ -1,8 +1,8 @@
 <template>
   <div>
-    <div class="mt-4 container">
-      <div class="row align-items-end justify-content-evenly">
-        <div class="form-group col-md-3">
+    <div class="mt-4">
+      <div class="row no-gutters align-items-end justify-content-between">
+        <div class="form-group col-md-2">
           <select
             v-model="gender"
             @change="Gender"
@@ -15,7 +15,39 @@
             <option value="male&amp;female">Both</option>
           </select>
         </div>
-        <div class="form-group col-md-3">
+        <div class="form-group col-md-2">
+          <select
+            v-model="homeinstitution"
+            @change="Homeinstitution"
+            id="inputState"
+            class="form-control form-select"
+          >
+            <option value="*" selected>Home Institution</option>
+            <option value="AGINCOURT"> AGINCOURT</option>
+            <option value="APHRC">APHRC</option>
+            <option value="IFAKARA HEALTH INSTITUTE">
+              IFAKARA HEALTH INSTITUTE</option
+            >
+            <option value="Makerere University"> Makerere University</option>
+            <option value="Moi University"> Moi University</option>
+            <option value="Obafemi Awolowo University">
+              Obafemi Awolowo University</option
+            >
+            <option value="University of Dar es Salaam">
+              University of Dar es Salaam</option
+            >
+            <option value="University of Ibadan"> University of Ibadan</option>
+            <option value="University of Malawi"> University of Malawi</option>
+            <option value="University of Nairobi">
+              University of Nairobi</option
+            >
+            <option value="University of Rwanda"> University of Rwanda</option>
+            <option value="University of the Witwatersrand">
+              University of the Witwatersrand</option
+            >
+          </select>
+        </div>
+        <div class="form-group col-md-2">
           <select
             v-model="hostInstitituioninstitutionof"
             @change="HostInstitituioninstitutionof"
@@ -40,8 +72,12 @@
             >
           </select>
         </div>
-        <div class="form-group col-md-3">
-          <select v-model="cohort" @change="Cohort" class="form-control form-select">
+        <div class="form-group col-md-2">
+          <select
+            v-model="cohort"
+            @change="Cohort"
+            class="form-control form-select"
+          >
             <option value="*" selected>Cohort</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -70,6 +106,7 @@ export default {
       gender: "*",
       hostInstitituioninstitutionof: "*",
       cohort: "*",
+      homeinstitution: "*",
     };
   },
   methods: {
@@ -83,10 +120,13 @@ export default {
       );
     },
     Cohort() {
-      this.$emit("cohort", this.gender);
+      this.$emit("cohort", this.cohort);
     },
     Search() {
       this.$emit("search");
+    },
+    Homeinstitution() {
+      this.$emit("homeinstitution", this.homeinstitution);
     },
   },
 };
@@ -97,7 +137,7 @@ export default {
 .filterContainer {
   display: flex;
   justify-content: space-evenly;
-  
+
   .moreHeight {
     height: 2rem;
   }
@@ -106,24 +146,23 @@ export default {
   }
 }
 .form-select {
-  cursor:pointer;
-  font-size:0.9rem;
+  cursor: pointer;
+  font-size: 0.9rem;
   &:hover {
-    background-color: #E6A709;
-    color:#fff;
+    background-color: #e6a709;
+    color: #fff;
   }
   option {
     background-color: #fff !important;
-    color:#333;
+    color: #333;
     height: 10px;
   }
-
 }
 
 .form-group {
   .btn {
-    min-width:200px;
-    background-color: #E6A709;
+    min-width: 200px;
+    background-color: #e6a709;
     border: none;
   }
 }

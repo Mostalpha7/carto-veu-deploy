@@ -1,11 +1,11 @@
 <template>
   <div>
     <div class="boxed">
-    <div class="py-5 partners">
-      <h3 class="text-center">Our African Partners</h3>
-      <div class="container">
+      <div class="py-5 partners">
+        <h3 class="text-center">Our African Partners</h3>
+        <div class="container scrollhor">
           <div class="funders-logo">
-            <img src="../../assets/partners/partner1.png" alt="" />
+            <img src="../../assets/partners/partner1.png" width="50" alt="" />
           </div>
           <div class="funders-logo">
             <img src="../../assets/partners/partner2.png" alt="" />
@@ -22,9 +22,8 @@
           <div class="funders-logo">
             <img src="../../assets/partners/partner7.png" alt="" />
           </div>
-        
+        </div>
       </div>
-    </div>
     </div>
 
     <div class="boxed">

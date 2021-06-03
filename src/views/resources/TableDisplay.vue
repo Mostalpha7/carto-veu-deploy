@@ -7,7 +7,10 @@
             <div class="pt-md-4 px-2">
               <div class="row align-items-end">
                 <div class="form-group filter col-md-2">
-                  <select id="inputState" class="form-select form-control">
+                  <select
+                    v-model="priorityArea"
+                    class="form-select form-control"
+                  >
                     <option value="*" disabled selected
                       >Select Priority Area</option
                     >
@@ -31,19 +34,15 @@
                     <option value="ncd">Ncd</option>
                   </select>
                 </div>
+
                 <div class="form-group col-md-2">
-                  <select v-model="gender" id="inputState" class="form-select form-control">
-                    <option value="*" selected disabled>Gender</option>
-                    <option value="male">male</option>
-                    <option value="female">female</option>
-                    <option value="male&amp;female">Both</option>
-                  </select>
-                </div>
-                <div class="form-group col-md-2">
-                  <select v-model="agecategory" class="form-select form-control">
+                  <select
+                    v-model="agecategory"
+                    class="form-select form-control"
+                  >
                     <option value="*" selected disabled>Age Category</option>
                     <option value="children">Children</option>
-                    <option value="young &amp; adolescents">
+                    <option value="young &amp;adolescents">
                       Young &amp; Adolescents
                     </option>
                     <option value="elderly">Elderly</option>
@@ -51,7 +50,10 @@
                   </select>
                 </div>
                 <div class="form-group col-md-2">
-                  <select v-model="studyApproach" class="form-select form-control">
+                  <select
+                    v-model="studyApproach"
+                    class="form-select form-control"
+                  >
                     <option value="*" selected disabled>Study Approach</option>
                     <option value="Mixed-mehods">Mixed-mehods</option>
                     <option value="quantitative">Quantitative</option>
@@ -61,10 +63,27 @@
                   </select>
                 </div>
                 <div class="form-group col-md-2">
+                  <select
+                    v-model="gender"
+                    id="inputState"
+                    class="form-select form-control"
+                  >
+                    <option value="*" disabled>Gender</option>
+                    <option value="male">male</option>
+                    <option value="female">female</option>
+                    <option value="*">Both</option>
+                  </select>
+                </div>
+                <div class="form-group col-md-2">
                   <select v-model="location" class="form-select form-control">
                     <option value="*" disabled selected>Location</option>
                     <option selected value="nigeria">Nigeria</option>
-                    <option selected value="tanzania">Tanzania</option>
+                    <option selected value="uganda">Uganda</option>
+                    <option selected value="south africa">south africa</option>
+                    <option selected value="kenya">kenya</option>
+                    <option selected value="malawi">malawi</option>
+                    <option selected value="afghanistan">afghanistan</option>
+                    <option selected value="rwanda">rwanda</option>
                   </select>
                 </div>
                 <div class="form-group col-md-2">
@@ -84,15 +103,20 @@
                       <th scope="col">Home Institution</th>
                       <th scope="col">Study Approach</th>
                       <th scope="col">Study Design</th>
-                      <th scope="col">Sample Size</th>
                       <th scope="col">Gender</th>
                       <th scope="col">Age Category</th>
-                      <th scope="col">Scopus Link</th>
+                      <th scope="col">Link</th>
                     </tr>
                   </thead>
+                  <Loading
+                    v-if="dataLoading"
+                    class="my-5 py-md-5 text-center"
+                  />
                   <tbody>
                     <tr v-for="(item, index) of dataTable" :key="index">
-                      <td>{{ item.title }}</td>
+                      <td class="text-capitalize">
+                        {{ item.title | reduceText }}
+                      </td>
                       <td class="text-center text-capitalize">
                         <span v-if="item.location">{{ item.location }}</span>
                         <span v-else>-</span>
@@ -116,10 +140,6 @@
                         <span v-else>-</span>
                       </td>
                       <td class="text-center text-capitalize">
-                        <span v-if="item.sampleSize">{{ item.sampleSize }}</span>
-                        <span v-else>-</span>
-                      </td>
-                      <td class="text-center text-capitalize">
                         <span v-if="item.gender">
                           {{ item.gender }}
                         </span>
@@ -133,12 +153,9 @@
                           -
                         </span>
                       </td>
-                      
+
                       <td class="text-center text-capitalize">
-                        <a
-                          :href="item.scopusID"
-                          class="nav-link"
-                          target="_blanck"
+                        <a :href="item.link" class="nav-link" target="_blanck"
                           >Link</a
                         >
                       </td>
@@ -146,6 +163,7 @@
                   </tbody>
                 </table>
               </div>
+              <Loading v-if="dataLoading" class="py-md-4 py-3" />
               <div v-if="loading">
                 <div class="row justify-content-left">
                   <div class="col-md-12">
@@ -171,6 +189,35 @@
                   </div>
                 </div>
               </div>
+              <div v-if="false">
+                <nav aria-label="...">
+                  <ul class="pagination">
+                    <li class="page-item disabled">
+                      <a
+                        class="page-link"
+                        href="#"
+                        tabindex="-1"
+                        aria-disabled="true"
+                        >Previous</a
+                      >
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">1</a>
+                    </li>
+                    <li class="page-item active" aria-current="page">
+                      <a class="page-link" href="#"
+                        >2 <span class="sr-only">(current)</span></a
+                      >
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">3</a>
+                    </li>
+                    <li class="page-item">
+                      <a class="page-link" href="#">Next</a>
+                    </li>
+                  </ul>
+                </nav>
+              </div>
             </div>
           </div>
         </div>
@@ -182,8 +229,11 @@
 <script>
 import axios from "axios";
 import { apiKey, baseUrl } from "@/resource.js";
-
+import Loading from "@/components/others/Loading";
 export default {
+  components: {
+    Loading,
+  },
   data() {
     return {
       dataTable: [],
@@ -191,8 +241,9 @@ export default {
       location: "*",
       studyApproach: "*",
       agecategory: "*",
-      perpage: "50",
-
+      priorityArea: "*",
+      perpage: "10",
+      dataLoading: true,
       loading: true,
       currentPage: 0,
       next: false,
@@ -202,9 +253,10 @@ export default {
   },
   methods: {
     async runFilter() {
+      this.dataLoading = true;
       await axios
         .get(
-          `${baseUrl}/resource?perpage=${this.perpage}&gender=${this.gender}&location=${this.location}&studyApproach=${this.studyApproach}&ncd=0&page=${this.nextPage}`,
+          `${baseUrl}/resource?perpage=${this.perpage}&gender=${this.gender}&location=${this.location}&studyApproach=${this.studyApproach}&agecategory=${this.agecategory}&ncd=0&page=${this.nextPage}`,
           {
             headers: {
               apiKey: apiKey,
@@ -215,11 +267,13 @@ export default {
           this.currentPage = response.data.page;
           this.next = response.data.next;
           this.prev = response.data.prev;
-          this.dataTable = response.data.data;
+          this.dataTable = response.data.data.reverse();
+          // console.log(response.data);
         })
         .catch((err) => {
           console.log(err);
         });
+      this.dataLoading = false;
     },
     Prev() {
       if (this.prev != false) {
@@ -232,6 +286,21 @@ export default {
         this.nextPage++;
         this.runFilter();
       }
+    },
+  },
+  filters: {
+    reduceText(text) {
+      var firstSort = `${text[0]} ${text.substring(1).toLowerCase()}`;
+      var strToArr = firstSort.split(" ");
+
+      var newStr = "";
+      strToArr.forEach((item, index) => {
+        if (index < 23) {
+          newStr = `${newStr} ${item}`;
+        }
+      });
+
+      return `${newStr} . . .`;
     },
   },
   created() {
@@ -253,26 +322,29 @@ th {
 }
 
 .form-select {
-  cursor:pointer;
-  font-size:0.9rem;
+  cursor: pointer;
+  font-size: 0.9rem;
   &:hover {
-    background-color: #E6A709;
-    color:#fff;
+    background-color: #e6a709;
+    color: #fff;
   }
   option {
     background-color: #fff !important;
-    color:#333;
+    color: #333;
     height: 10px;
   }
-
 }
 
 .form-group {
   .btn {
-    min-width:200px;
-    background-color: #E6A709;
+    min-width: 200px;
+    background-color: #e6a709;
     border: none;
   }
 }
 
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: rgba(5, 17, 66, 0.041);
+  color: var(--bs-table-striped-color);
+}
 </style>

@@ -21,19 +21,19 @@
       <div class="d-none d-md-block ">
         <div class="boxed counter px-4">
           <div>
-            <h1>2179+</h1>
+            <h1>{{ topData.totalPublications | textFilter }}+</h1>
             <p>Number of publications</p>
           </div>
           <div>
-            <h1>183+</h1>
+            <h1>{{ topData.totalAuthors | textFilter }}+</h1>
             <p>Total authors</p>
           </div>
           <div>
-            <h1>24409+</h1>
+            <h1>{{ topData.numberofCitations | textFilter }}+</h1>
             <p>Total citations</p>
           </div>
           <div>
-            <h1>2.92</h1>
+            <h1>{{ topData.journalImpactFactor | textFilter }}+</h1>
             <p>Media impact factor of journals</p>
           </div>
         </div>
@@ -42,19 +42,70 @@
   </div>
 </template>
 <script>
-export default {};
+import axios from "axios";
+import { baseUrl, apiKey } from "@/resource";
+export default {
+  data() {
+    return {
+      topData: {
+        totalPublications: "loading",
+        totalAuthors: "loading",
+        journalImpactFactor: "loading",
+        numberofCitations: "loading",
+      },
+    };
+  },
+  methods: {
+    async loadData() {
+      await axios
+        .get(`${baseUrl}/analytics`, {
+          headers: {
+            apiKey: apiKey,
+          },
+        })
+        .then((response) => {
+          var result = response.data.data;
+
+          this.topData.totalPublications = result.totalPublications;
+          this.topData.totalAuthors = result.totalAuthors;
+          this.topData.numberofCitations = result.numberofCitations;
+          this.topData.journalImpactFactor = result.journalImpactFactor;
+          // this.topData.medianPaperCited = result.medianPaperCited;
+          // this.topData.medianProportionOfMostSitedPublication =
+          //   result.medianProportionOfMostSitedPublication;
+        })
+        .catch(() => {});
+      this.loading = false;
+    },
+  },
+  filters: {
+    textFilter(val) {
+      var convertStr = val.toString();
+      var splitStr = convertStr.split(".");
+
+      if (splitStr.length === 1) {
+        return convertStr;
+      } else {
+        var firstStr = splitStr[0];
+        var secondStr = splitStr[1].slice(0, 2);
+        return `${firstStr}.${secondStr}`;
+      }
+    },
+  },
+  created() {
+    this.loadData();
+  },
+};
 </script>
 <style lang="scss" scoped>
 @import "../../styles/global.scss";
 .banner {
-  min-height: 60vh;
+  min-height: 75vh;
   display: flex;
   background-image: url(../../assets/home/banner.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top right;
-  height: 100%;
- 
 
   @include mobile {
     min-height: 60vh;
@@ -62,9 +113,9 @@ export default {};
     background-position: center;
   }
   .banner-content {
-        position: relative;
-        top: 35%;
-        left: 7%;
+    position: relative;
+    top: 25%;
+    left: 7%;
   }
   .link {
     text-decoration: none;
@@ -77,7 +128,6 @@ export default {};
   }
   .left {
     flex: 1;
-
     p {
       color: whitesmoke;
       font-size: 1.25rem;
@@ -86,10 +136,10 @@ export default {};
     .btn {
       padding: 0.7rem 2.1rem;
       min-width: 200px;
-      background:$mainColor;
+      background: $mainColor;
       &:hover {
-        background:$mainBlue;
-        transition: .5s;
+        background: $mainBlue;
+        transition: 0.5s;
       }
     }
   }

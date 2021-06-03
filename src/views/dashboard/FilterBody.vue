@@ -50,7 +50,7 @@
         </div>
       </div>
       <div class="right">
-        <div class="card-body shadow card mb-2">
+        <div class="card-body shadow card">
           <BarChart :publicationsPeryear="others.publicationsPeryear" />
         </div>
       </div>
@@ -77,7 +77,7 @@
     <div class="flexContainer mb-2">
       <div class="left shadow card">
         <div class="card-body">
-          <PublishedJournal
+          <Top5PublishedJournal
             :topJournalsPublished="others.topJournalsPublished"
           />
         </div>
@@ -93,13 +93,13 @@
           <div class="col-md-6">
             <PercentgePublications
               :percentgePublications="others.percentgePublications"
-              class="shadow card p-2 mb-2"
+              class="border-0 shadow card p-2"
             />
           </div>
           <div class="col-md-6">
             <PappersCoAutoredByCarter
               :pappersCoAutoredByCarter="others.pappersCoAutoredByCarter"
-              class="shadow card p-2 mb-2"
+              class="border-0 card p-2"
             />
           </div>
         </div>
@@ -112,7 +112,7 @@
 import Card from "./Card";
 import BarChart from "./BarChart";
 import PieChart from "./PieChart";
-import PublishedJournal from "./PublishedJournal";
+import Top5PublishedJournal from "./Top5PublishedJournal";
 import CoAuthorPie from "./CoAuthorPie";
 import AuthorBar from "./AuthorBar";
 import FellowsPerHomeInstitution from "./FellowsPerHomeInstitution";
@@ -123,7 +123,7 @@ export default {
     Card,
     BarChart,
     PieChart,
-    PublishedJournal,
+    Top5PublishedJournal,
     CoAuthorPie,
     AuthorBar,
     FellowsPerHomeInstitution,
@@ -157,5 +157,4 @@ export default {
     }
   }
 }
-
 </style>

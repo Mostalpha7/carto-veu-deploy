@@ -34,10 +34,12 @@ export default {
     this.fellowsPerHostInstitution.forEach((item) => {
       let theArr = [];
 
-      let name = item._id == "" ? "Others" : item._id;
+      let name = item._id;
       theArr.push(name, item.count);
 
-      this.chartData.push(theArr);
+      if (theArr[0] !== "") {
+        this.chartData.push(theArr);
+      }
     });
   },
 };

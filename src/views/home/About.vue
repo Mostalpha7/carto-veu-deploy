@@ -9,7 +9,7 @@
             alt="aboutImg"
           />
         </div>
-        <div class="right ">
+        <div class="right">
           <h4>About</h4>
           <h3>Collaborative Environment for Open Research</h3>
           <p>
@@ -26,7 +26,6 @@
       </div>
 
       <div class="features">
-
         <div class="feature">
           <img
             src="../../assets/home/knowledge.png"
@@ -34,7 +33,6 @@
             alt="Knowledge Management and Impact Optimization"
           />
           <h5>Knowledge Management and Impact Optimization</h5>
-
         </div>
         <div class="feature">
           <img
@@ -43,7 +41,6 @@
             alt="Optimizing Research Impact"
           />
           <h5>Optimizing Research Impact</h5>
-
         </div>
         <div class="feature">
           <img
@@ -52,7 +49,6 @@
             alt="Improving visibility of evidence"
           />
           <h5>Improving visibility of evidence</h5>
-
         </div>
         <div class="feature">
           <img
@@ -61,7 +57,6 @@
             alt="Human Capital Development"
           />
           <h5>Human Capital Development</h5>
-
         </div>
         <div class="feature">
           <img
@@ -70,7 +65,6 @@
             alt="Promoting open Science"
           />
           <h5>Promoting open Science</h5>
-
         </div>
         <div class="feature">
           <img
@@ -79,10 +73,7 @@
             alt="Tracking structure of evidence"
           />
           <h5>Tracking structure of evidence</h5>
-
         </div>
-       
-
       </div>
     </div>
   </div>
@@ -109,10 +100,11 @@ export default {};
       .aboutImg {
         width: 95%;
         height: 100%;
-        transition:1.5s;
+        transition: 1.5s;
         &:hover {
-          transform: skewX(5deg) skewY(5deg) scale(0.9) rotate3d(2, 1, -5, 10deg);
-          transition:1.5s;
+          transform: skewX(5deg) skewY(5deg) scale(0.9)
+            rotate3d(2, 1, -5, 10deg);
+          transition: 1.5s;
         }
       }
     }
@@ -120,7 +112,7 @@ export default {};
       flex: 1;
       padding-right: 1rem;
       @include mobile {
-        padding-right: 0px;
+        padding-right: 0px !important;
       }
       h4 {
         color: $mainColor;
@@ -147,6 +139,9 @@ export default {};
         :last-of-type {
           line-height: 1.7;
         }
+        @include mobile {
+          width: 100%;
+        }
       }
       .btn {
         border: 1px solid rgb(205, 184, 224);
@@ -163,7 +158,6 @@ export default {};
         border-bottom-left-radius: 0.3rem;
       }
     }
-
   }
   .secondRow {
     padding-top: 1.4rem;
@@ -179,34 +173,33 @@ export default {};
     display: grid;
     grid: repeat(2, 250px) / repeat(3, 250px);
     grid-row-gap: 50px;
-    grid-column-gap:50px;
+    grid-column-gap: 50px;
     padding: 10px;
     justify-content: center;
     @include mobile {
       grid: auto / auto auto;
       grid-row-gap: 10px;
-      grid-column-gap:5px;
+      grid-column-gap: 5px;
       padding: 0;
       .featureimg {
         max-width: 150px;
         margin: auto;
       }
       h5 {
-        margin-top:-20px !important;
+        margin-top: -20px !important;
       }
     }
     .feature {
-      transition: .5s;
+      transition: 0.5s;
       &:hover {
-          transform: scale(1.03);
-          transition: .5s;
-        }
+        transform: scale(1.03);
+        transition: 0.5s;
+      }
       h5 {
         margin-top: -40px;
         font-size: 1rem;
         font-weight: 600;
         text-align: center;
-
       }
     }
   }
