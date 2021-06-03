@@ -3,7 +3,7 @@
     <div class="">
       <div class="banner boxed">
         <div class="left">
-          <div class="banner-content">
+          <div>
             <h1>
               Welcome to <br />
               CARTA EVIDENCE
@@ -11,8 +11,8 @@
             <p>
               Coalition of African Academy of research-oriented change agents
             </p>
-            <Link class="link btn" to="/about">
-              Explore
+            <Link class="link btn" to="/">
+              CONTACT US
             </Link>
           </div>
         </div>
@@ -47,25 +47,21 @@ export default {};
 <style lang="scss" scoped>
 @import "../../styles/global.scss";
 .banner {
-  min-height: 60vh;
+  min-height: 80vh;
   display: flex;
   background-image: url(../../assets/home/banner.png);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: top right;
+  background-position: bottom bottom;
   height: 100%;
- 
+  padding-top: calc(100vh - 80vh);
 
   @include mobile {
     min-height: 60vh;
     height: 80%;
     background-position: center;
   }
-  .banner-content {
-        position: relative;
-        top: 35%;
-        left: 7%;
-  }
+
   .link {
     text-decoration: none;
     color: whitesmoke;
@@ -85,12 +81,6 @@ export default {};
     }
     .btn {
       padding: 0.7rem 2.1rem;
-      min-width: 200px;
-      background:$mainColor;
-      &:hover {
-        background:$mainBlue;
-        transition: .5s;
-      }
     }
   }
   .right {
@@ -107,29 +97,24 @@ h1 {
   font-weight: 800;
   color: whitesmoke;
   @include mobile {
+    margin-top: calc(100vh - 80vh);
     font-size: 2rem;
-    font-weight: 700;
+    font-weight: 500;
   }
 }
 
 .counter {
-  padding: 2rem 0px;
+  padding: 1rem 0px;
   background-color: #063063;
   display: flex;
-  justify-content: space-evenly;
-  &:hover {
-    background-color: $mainColor;
-  }
+  justify-content: space-between;
   h1 {
     color: white;
     font-size: 2.1rem;
     text-align: center;
-    margin-bottom: 0;
   }
   p {
     color: rgb(235, 235, 235);
-    text-transform: capitalize;
-    margin-bottom: 0;
   }
 }
 </style>

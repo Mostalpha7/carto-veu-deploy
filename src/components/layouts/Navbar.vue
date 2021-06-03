@@ -24,13 +24,8 @@
       >
         <ul class="navbar-nav ml-auto bg-white">
           <li class="nav-item">
-            <router-link to="/" class="link nav-link">
-              Home
-            </router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="project" class="link nav-link">
-              The Project
+            <router-link to="#" class="link nav-link">
+              About
             </router-link>
           </li>
           <li class="nav-item">
@@ -69,7 +64,7 @@ export default {};
 .navbar {
   display: flex;
   height: 93px;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   .left {
     flex: 1;
@@ -78,7 +73,7 @@ export default {};
     flex: 2;
     .rightInner {
       display: flex;
-      justify-content: space-evenly;
+      justify-content: space-between;
       align-items: center;
       .right-inner {
         width: 80%;

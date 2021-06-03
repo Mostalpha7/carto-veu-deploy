@@ -2,10 +2,10 @@
   <div>
     <Banner />
 
-    <div class="resourcestoggle my-5">
+    <div class="row justify-content-center my-5">
       <div class="row justify-content-center">
         <div class="col-md-10">
-          <div class="d-grid">
+          <div class="d-flex">
             <button
               @click="swap(true)"
               class="btn btn1"
@@ -13,6 +13,7 @@
             >
               Policy Briefs
             </button>
+            <div class="mr-2"></div>
 
             <button
               @click="swap(false)"
@@ -60,37 +61,13 @@ label {
 }
 
 button.btn1 {
-  padding: 40px;
-  border: none;
-  font-size: 1.2rem;
-  min-width: 400px;
+  width: 40vw;
+  height: 4rem;
   @include mobile {
-    min-width: 100%;
-  }
-  &:hover {
-    background-color: $mainBlue;
-    color:#fff;
-    
-  }
-  &:focus {
-    box-shadow: none;
-    border:none;
+    min-width: 44vw;
   }
 }
 .btn-light {
   background-color: rgb(224, 224, 224);
-}
-
-.resourcestoggle {
-  .d-grid {
-    max-width: 70%;
-    grid: auto / auto auto;
-    justify-content: center;
-    margin: auto;
-    grid-gap:20px;
-    @include mobile {
-      grid:none;
-    }
-  }
 }
 </style>

@@ -2,11 +2,8 @@
   <div>
     <div class="resourceBanner boxed">
       <div class="left">
-        <div class="banner-content">
-            <h1>Resources</h1>
-        <p>Coalition of African Academy of <br /> research-oriented change agents</p>
-          </div>
-        
+        <h1>Resources</h1>
+        <p>Coalition of African Academy of research-oriented change agents</p>
       </div>
       <div class="right"></div>
     </div>
@@ -18,7 +15,7 @@
 .resourceBanner {
   margin-top: -0.6rem;
   background-image: url(../../assets/resources/banner.png);
-  height: 300px;
+  height: 65vh;
   background-size: cover;
   background-repeat: no-repeat;
   display: flex;
@@ -28,27 +25,21 @@
   }
   .left {
     flex: 1;
-    .banner-content {
-        position: relative;
-        top: 30%;
-        left: 7%;
-        max-width: 400px;
-        h1 {
-          margin-bottom: 0.6rem;
-          font-size: 3rem;
-          font-weight: 700;
-          color: whitesmoke;
-          @include mobile {
-            font-size: 2rem;
-          }
-        }
-        p {
-          color: whitesmoke;
-          font-size: 1.25rem;
-          margin-bottom: 1rem;
-        }
-  }
-    
+    h1 {
+      margin-top: calc(50vh - 28vh);
+      margin-bottom: 0.6rem;
+      font-size: 3rem;
+      color: whitesmoke;
+      @include mobile {
+        margin-top: calc(100vh - 85vh);
+        font-size: 2rem;
+      }
+    }
+    p {
+      color: whitesmoke;
+      font-size: 1.25rem;
+      margin-bottom: 1rem;
+    }
   }
   .right {
     flex: 1;

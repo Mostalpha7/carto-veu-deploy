@@ -141,7 +141,7 @@ export default {
 <style lang="scss" scoped>
 @import "../../styles/global.scss";
 .flexContainer {
-  justify-content: space-evenly;
+  justify-content: space-between;
   display: flex;
   flex-wrap: wrap;
   .left {
@@ -157,5 +157,4 @@ export default {
     }
   }
 }
-
 </style>
