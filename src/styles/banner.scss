@@ -1,11 +1,11 @@
 @import "./global.scss";
 .banner {
-    min-height: 80vh;
+    min-height: 60vh;
     display: flex;
     background-image: url(assets/home/banner.png);
     background-size: cover;
     background-repeat: no-repeat;
-    background-position: bottom bottom;
+    background-position: top right;
     height: 100%;
     @include mobile {
         min-height: 60vh;
@@ -36,7 +36,7 @@
     padding: 1rem 0px;
     background-color: #063063;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     h2 {
         color: white;
         font-size: 2.1rem;
@@ -50,6 +50,7 @@
 h1 {
     font-size: 3rem;
     font-weight: 800;
+    margin-bottom: 0;
 }
 
 // h1 {

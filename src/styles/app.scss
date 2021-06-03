@@ -31,14 +31,11 @@
         border-bottom-left-radius: .3rem;
     }
     .link {
-        color: rgb(26, 25, 25) !important;
-        margin-left: 10px;
+        color: #333;
         margin-right: 10px;
         text-decoration: none;
         font-size: 1rem;
-        &:hover {
-            font-size: 1.05rem;
-        }
+
     }
     .curveBorder {
         background-color: $mutedBlack;
@@ -46,5 +43,16 @@
     }
     .allHeight {
         height: 100%;
+    }
+
+    .navbar {
+        .nav-link {
+            color: #333;
+            &:hover,&:active,&:focus {
+                color:$mainColor !important;
+                
+            }
+        }
+
     }
 }

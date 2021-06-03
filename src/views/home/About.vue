@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="homeAbout boxed">
+    <div id="about" class="homeAbout boxed">
       <div class="firstRow">
         <div class="left d-none d-md-block">
           <img
@@ -11,22 +11,78 @@
         </div>
         <div class="right ">
           <h4>About</h4>
-          <h3>Collaborative environment for open research</h3>
+          <h3>Collaborative Environment for Open Research</h3>
           <p>
             The project will create a collaborative environment of African
             scientists and non-scientist consumers of open research working in
             communities of practice and across boundaries and disciplines.
           </p>
-          <br class="d-none d-md-block" />
           <p>
             Building on available information technology solutions, the project
             will result in increased access to data and speed of discovery and
             scientific advancement.
           </p>
-          <Link class="btn mt-md-3 link" to="#">
-            EXPLORE
-          </Link>
         </div>
+      </div>
+
+      <div class="features">
+
+        <div class="feature">
+          <img
+            src="../../assets/home/knowledge.png"
+            class="featureimg"
+            alt="Knowledge Management and Impact Optimization"
+          />
+          <h5>Knowledge Management and Impact Optimization</h5>
+
+        </div>
+        <div class="feature">
+          <img
+            src="../../assets/home/impact.png"
+            class="featureimg"
+            alt="Optimizing Research Impact"
+          />
+          <h5>Optimizing Research Impact</h5>
+
+        </div>
+        <div class="feature">
+          <img
+            src="../../assets/home/evidence.png"
+            class="featureimg"
+            alt="Improving visibility of evidence"
+          />
+          <h5>Improving visibility of evidence</h5>
+
+        </div>
+        <div class="feature">
+          <img
+            src="../../assets/home/hcd.png"
+            class="featureimg"
+            alt="Human Capital Development"
+          />
+          <h5>Human Capital Development</h5>
+
+        </div>
+        <div class="feature">
+          <img
+            src="../../assets/home/open-science.png"
+            class="featureimg"
+            alt="Promoting open Science"
+          />
+          <h5>Promoting open Science</h5>
+
+        </div>
+        <div class="feature">
+          <img
+            src="../../assets/home/structure.png"
+            class="featureimg"
+            alt="Tracking structure of evidence"
+          />
+          <h5>Tracking structure of evidence</h5>
+
+        </div>
+       
+
       </div>
     </div>
   </div>
@@ -53,6 +109,11 @@ export default {};
       .aboutImg {
         width: 95%;
         height: 100%;
+        transition:1.5s;
+        &:hover {
+          transform: skewX(5deg) skewY(5deg) scale(0.9) rotate3d(2, 1, -5, 10deg);
+          transition:1.5s;
+        }
       }
     }
     .right {
@@ -63,14 +124,17 @@ export default {};
       }
       h4 {
         color: $mainColor;
-        font-size: 1.5rem;
-        font-weight: normal;
+        font-size: 1rem;
+        font-weight: bold;
         margin-bottom: 0.5rem;
+        text-transform: uppercase;
+        letter-spacing: 0.5rem;
       }
       h3 {
-        font-size: 2.2rem;
+        font-size: 2.3rem;
         margin-bottom: 1rem;
-        width: 90%;
+        font-weight: 800;
+        width: 80%;
         @include mobile {
           width: 95%;
           margin-bottom: 1.2rem;
@@ -79,6 +143,7 @@ export default {};
       p {
         font-size: 1.02rem;
         line-height: 1.5;
+        width: 80%;
         :last-of-type {
           line-height: 1.7;
         }
@@ -98,6 +163,7 @@ export default {};
         border-bottom-left-radius: 0.3rem;
       }
     }
+
   }
   .secondRow {
     padding-top: 1.4rem;
@@ -106,6 +172,42 @@ export default {};
     justify-content: center;
     .secondInner {
       flex: 1;
+    }
+  }
+  .features {
+    margin: 5% 10%;
+    display: grid;
+    grid: repeat(2, 250px) / repeat(3, 250px);
+    grid-row-gap: 50px;
+    grid-column-gap:50px;
+    padding: 10px;
+    justify-content: center;
+    @include mobile {
+      grid: auto / auto auto;
+      grid-row-gap: 10px;
+      grid-column-gap:5px;
+      padding: 0;
+      .featureimg {
+        max-width: 150px;
+        margin: auto;
+      }
+      h5 {
+        margin-top:-20px !important;
+      }
+    }
+    .feature {
+      transition: .5s;
+      &:hover {
+          transform: scale(1.03);
+          transition: .5s;
+        }
+      h5 {
+        margin-top: -40px;
+        font-size: 1rem;
+        font-weight: 600;
+        text-align: center;
+
+      }
     }
   }
 }

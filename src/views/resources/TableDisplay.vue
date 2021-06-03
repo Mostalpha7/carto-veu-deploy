@@ -6,8 +6,8 @@
           <div class="">
             <div class="pt-md-4 px-2">
               <div class="row align-items-end">
-                <div class="form-group col-md-2">
-                  <select id="inputState" class="form-control">
+                <div class="form-group filter col-md-2">
+                  <select id="inputState" class="form-select form-control">
                     <option value="*" disabled selected
                       >Select Priority Area</option
                     >
@@ -23,7 +23,7 @@
                     </option>
                     <option value="srh">Srh</option>
                     <option value="disability">Disability</option>
-                    <option value="covid19">Covid19</option>
+                    <option value="covid19">Covid-19</option>
                     <option value="substanceuse">Substance Use</option>
                     <option value="environmentalhealth">
                       Environmental Health
@@ -32,26 +32,26 @@
                   </select>
                 </div>
                 <div class="form-group col-md-2">
-                  <select v-model="gender" id="inputState" class="form-control">
+                  <select v-model="gender" id="inputState" class="form-select form-control">
                     <option value="*" selected disabled>Gender</option>
                     <option value="male">male</option>
                     <option value="female">female</option>
-                    <option value="male&female">Both</option>
+                    <option value="male&amp;female">Both</option>
                   </select>
                 </div>
                 <div class="form-group col-md-2">
-                  <select v-model="agecategory" class="form-control">
+                  <select v-model="agecategory" class="form-select form-control">
                     <option value="*" selected disabled>Age Category</option>
                     <option value="children">Children</option>
-                    <option value="young & adolescents">
-                      Young & Adolescents
+                    <option value="young &amp; adolescents">
+                      Young &amp; Adolescents
                     </option>
                     <option value="elderly">Elderly</option>
                     <option value="adults">Adults</option>
                   </select>
                 </div>
                 <div class="form-group col-md-2">
-                  <select v-model="studyApproach" class="form-control">
+                  <select v-model="studyApproach" class="form-select form-control">
                     <option value="*" selected disabled>Study Approach</option>
                     <option value="Mixed-mehods">Mixed-mehods</option>
                     <option value="quantitative">Quantitative</option>
@@ -61,7 +61,7 @@
                   </select>
                 </div>
                 <div class="form-group col-md-2">
-                  <select v-model="location" class="form-control">
+                  <select v-model="location" class="form-select form-control">
                     <option value="*" disabled selected>Location</option>
                     <option selected value="nigeria">Nigeria</option>
                     <option selected value="tanzania">Tanzania</option>
@@ -81,12 +81,13 @@
                     <tr>
                       <th scope="col">Title</th>
                       <th scope="col">Location</th>
-                      <th scope="col">Home institution</th>
-                      <th scope="col">Study approach</th>
+                      <th scope="col">Home Institution</th>
+                      <th scope="col">Study Approach</th>
                       <th scope="col">Study Design</th>
+                      <th scope="col">Sample Size</th>
                       <th scope="col">Gender</th>
-                      <th scope="col">Age category</th>
-                      <th scope="col">Scopus link</th>
+                      <th scope="col">Age Category</th>
+                      <th scope="col">Scopus Link</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -94,40 +95,45 @@
                       <td>{{ item.title }}</td>
                       <td class="text-center text-capitalize">
                         <span v-if="item.location">{{ item.location }}</span>
-                        <span v-else>---</span>
+                        <span v-else>-</span>
                       </td>
                       <td class="text-center text-capitalize">
                         <span v-if="item.homeinstitution">
                           {{ item.homeinstitution }}
                         </span>
                         <span v-else>
-                          ---
+                          -
                         </span>
                       </td>
                       <td class="text-center text-capitalize">
                         <span v-if="item.studyApproach">{{
                           item.studyApproach
                         }}</span>
-                        <span v-else>---</span>
+                        <span v-else>-</span>
                       </td>
                       <td class="text-center text-capitalize">
                         <span v-if="item.designNew">{{ item.designNew }}</span>
-                        <span v-else>---</span>
+                        <span v-else>-</span>
+                      </td>
+                      <td class="text-center text-capitalize">
+                        <span v-if="item.sampleSize">{{ item.sampleSize }}</span>
+                        <span v-else>-</span>
                       </td>
                       <td class="text-center text-capitalize">
                         <span v-if="item.gender">
                           {{ item.gender }}
                         </span>
-                        <span v-else>---</span>
+                        <span v-else>-</span>
                       </td>
                       <td class="text-center text-capitalize">
                         <span v-if="item.agecategory">
                           {{ item.agecategory }}
                         </span>
                         <span v-else>
-                          ---
+                          -
                         </span>
                       </td>
+                      
                       <td class="text-center text-capitalize">
                         <a
                           :href="item.scopusID"
@@ -245,4 +251,28 @@ td {
 th {
   font-size: 0.9rem;
 }
+
+.form-select {
+  cursor:pointer;
+  font-size:0.9rem;
+  &:hover {
+    background-color: #E6A709;
+    color:#fff;
+  }
+  option {
+    background-color: #fff !important;
+    color:#333;
+    height: 10px;
+  }
+
+}
+
+.form-group {
+  .btn {
+    min-width:200px;
+    background-color: #E6A709;
+    border: none;
+  }
+}
+
 </style>

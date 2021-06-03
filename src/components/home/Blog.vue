@@ -1,14 +1,17 @@
 <template>
   <div>
     <div class="blogCard2 mb-2">
-      <div class="card bg-dark text-white">
-        <img src="../../assets/blog/Bitmap (1).png" class="card-img" alt="" />
+      <div class="card text-white">
+        <!-- <img src="../../assets/blog/Bitmap.jpg" class="featured-img" alt="" /> -->
         <div class="card-img-overlay">
-          <p class="card-text font-weight-bold mb-0 pb-1">
+        </div>
+
+        <div class="card-text">
+          <p class="font-weight-bold mb-0 pb-1">
             WANT TO SOLVE COMPLEX HEALTH ISSUES? TRAIN SCHOLARS TO THINK ACROSS
             DISCIPLINES
           </p>
-          <p class="card-text mt-0">Health Systems and Policy</p>
+          <p class="mt-0">Health Systems and Policy</p>
         </div>
       </div>
     </div>
@@ -24,10 +27,45 @@ export default {
 <style lang="scss" scoped>
 .blogCard2 {
   .card {
-    .card-img-overlay {
-      top: auto !important;
-      bottom: 10px !important;
+    position: relative;
+    margin-top: 50px;
+    border: none;
+    border-radius: 15px;
+    background: url(../../assets/blog/Bitmap.jpg);
+    background-position: center top;
+    background-clip: border-box;
+    background-size: cover;
+    height:300px;
+    padding: 30px;
+    &:hover {
+        transition: .5s ease;
+        background-size: 105%;
+      }
+    .featured-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
     }
+    .card-img-overlay {
+      position:absolute;
+      border-radius: 15px;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 1;
+      transition: .5s ease;
+      background-image: linear-gradient(180deg, rgba(19, 27, 66, 0) 0%, rgba(12, 20, 58, 0.73) 48.33%, #131B42 99.63%);
+    }
+    .card-text {
+      bottom:10%;
+      z-index: 100000;
+      position: absolute;
+    }
+
   }
 }
 </style>

@@ -1,18 +1,18 @@
 <template>
   <div>
     <div class="mt-4 container">
-      <div class="row align-items-end justify-content-between">
+      <div class="row align-items-end justify-content-evenly">
         <div class="form-group col-md-3">
           <select
             v-model="gender"
             @change="Gender"
             id="inputState"
-            class="form-control"
+            class="form-control form-select"
           >
             <option value="*" selected>Gender</option>
-            <option value="male">male</option>
-            <option value="female">female</option>
-            <option value="male&female">Both</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="male&amp;female">Both</option>
           </select>
         </div>
         <div class="form-group col-md-3">
@@ -20,7 +20,7 @@
             v-model="hostInstitituioninstitutionof"
             @change="HostInstitituioninstitutionof"
             id="inputState"
-            class="form-control"
+            class="form-control form-select"
           >
             <option value="*" selected>Host Institituion</option>
             <option value="University of Ibadan">University of Ibadan</option>
@@ -41,7 +41,7 @@
           </select>
         </div>
         <div class="form-group col-md-3">
-          <select v-model="cohort" @change="Cohort" class="form-control">
+          <select v-model="cohort" @change="Cohort" class="form-control form-select">
             <option value="*" selected>Cohort</option>
             <option value="1">1</option>
             <option value="2">2</option>
@@ -96,12 +96,35 @@ export default {
 @import "../../styles/global.scss";
 .filterContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  
   .moreHeight {
     height: 2rem;
   }
   .yellow {
     color: $yellow !important;
+  }
+}
+.form-select {
+  cursor:pointer;
+  font-size:0.9rem;
+  &:hover {
+    background-color: #E6A709;
+    color:#fff;
+  }
+  option {
+    background-color: #fff !important;
+    color:#333;
+    height: 10px;
+  }
+
+}
+
+.form-group {
+  .btn {
+    min-width:200px;
+    background-color: #E6A709;
+    border: none;
   }
 }
 </style>

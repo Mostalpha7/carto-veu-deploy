@@ -1,36 +1,37 @@
 <template>
   <div>
+    <div class="boxed">
     <div class="py-5 partners">
-      <h2 class="text-center">Our African Partners</h2>
+      <h3 class="text-center">Our African Partners</h3>
       <div class="container">
-        <div class="d-flex scrollhor">
-          <div class="col-md-2">
-            <img width="75" src="../../assets/partners/partner1.png" alt="" />
+          <div class="funders-logo">
+            <img src="../../assets/partners/partner1.png" alt="" />
           </div>
-          <div class="col-md-2">
-            <img width="75" src="../../assets/partners/partner2.png" alt="" />
+          <div class="funders-logo">
+            <img src="../../assets/partners/partner2.png" alt="" />
           </div>
-          <div class="col-md-2">
-            <img width="75" src="../../assets/partners/partner3.png" alt="" />
+          <div class="funders-logo">
+            <img src="../../assets/partners/partner3.png" alt="" />
           </div>
-          <div class="col-md-2">
-            <img width="75" src="../../assets/partners/partner5.png" alt="" />
+          <div class="funders-logo">
+            <img src="../../assets/partners/partner5.png" alt="" />
           </div>
-          <div class="col-md-2">
-            <img width="75" src="../../assets/partners/partner6.png" alt="" />
+          <div class="funders-logo">
+            <img src="../../assets/partners/partner6.png" alt="" />
           </div>
-          <div class="col-md-2">
-            <img width="75" src="../../assets/partners/partner7.png" alt="" />
+          <div class="funders-logo">
+            <img src="../../assets/partners/partner7.png" alt="" />
           </div>
-        </div>
+        
       </div>
+    </div>
     </div>
 
     <div class="boxed">
-      <div class="curveBorder">
+      <div>
         <div class="p-4 pb-5">
           <div class="pb-md-5">
-            <h2 class="text-center pt-4">Our Funders</h2>
+            <h3 class="text-center pt-4">Our Funders</h3>
             <div class="container scrollhor py-5">
               <div class="d-flex">
                 <div class="col-md-2">
@@ -91,5 +92,13 @@ export default {
 }
 .scrollhor::-webkit-scrollbar {
   display: none;
+}
+.container {
+  display: grid;
+  grid: 100px / repeat(6, auto);
+  grid-gap: 10px;
+  justify-content: center;
+  .funders-logo {
+  }
 }
 </style>
