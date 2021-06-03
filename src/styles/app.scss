@@ -35,7 +35,6 @@
         margin-right: 10px;
         text-decoration: none;
         font-size: 1rem;
-
     }
     .curveBorder {
         background-color: $mutedBlack;
@@ -44,15 +43,14 @@
     .allHeight {
         height: 100%;
     }
-
     .navbar {
         .nav-link {
             color: #333;
-            &:hover,&:active,&:focus {
-                color:$mainColor !important;
-                
+            &:hover,
+            &:active,
+            &:focus {
+                color: $mainColor !important;
             }
         }
-
     }
 }

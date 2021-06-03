@@ -11,9 +11,7 @@
                     v-model="priorityArea"
                     class="form-select form-control"
                   >
-                    <option value="*" disabled selected
-                      >Select Priority Area</option
-                    >
+                    <option value="*" selected>Select Priority Area</option>
                     <option value="mentalhealth">Mental Health</option>
                     <option value="foodsecurity">Food Security</option>
                     <option value="cancer">Cancer</option>
@@ -40,7 +38,7 @@
                     v-model="agecategory"
                     class="form-select form-control"
                   >
-                    <option value="*" selected disabled>Age Category</option>
+                    <option value="*" selected>Age Category</option>
                     <option value="children">Children</option>
                     <option value="young &amp;adolescents">
                       Young &amp; Adolescents
@@ -54,7 +52,7 @@
                     v-model="studyApproach"
                     class="form-select form-control"
                   >
-                    <option value="*" selected disabled>Study Approach</option>
+                    <option value="*" selected>Study Approach</option>
                     <option value="Mixed-mehods">Mixed-mehods</option>
                     <option value="quantitative">Quantitative</option>
                     <option value="qualitative">Qualitative</option>
@@ -68,22 +66,22 @@
                     id="inputState"
                     class="form-select form-control"
                   >
-                    <option value="*" disabled>Gender</option>
-                    <option value="male">male</option>
-                    <option value="female">female</option>
+                    <option value="*" selected>Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
                     <option value="*">Both</option>
                   </select>
                 </div>
                 <div class="form-group col-md-2">
                   <select v-model="location" class="form-select form-control">
-                    <option value="*" disabled selected>Location</option>
+                    <option value="*" selected>Location</option>
                     <option selected value="nigeria">Nigeria</option>
                     <option selected value="uganda">Uganda</option>
-                    <option selected value="south africa">south africa</option>
-                    <option selected value="kenya">kenya</option>
-                    <option selected value="malawi">malawi</option>
-                    <option selected value="afghanistan">afghanistan</option>
-                    <option selected value="rwanda">rwanda</option>
+                    <option selected value="south africa">South Africa</option>
+                    <option selected value="kenya">Kenya</option>
+                    <option selected value="malawi">Malawi</option>
+                    <option selected value="afghanistan">Afghanistan</option>
+                    <option selected value="rwanda">Rwanda</option>
                   </select>
                 </div>
                 <div class="form-group col-md-2">
@@ -337,7 +335,7 @@ th {
 
 .form-group {
   .btn {
-    min-width: 200px;
+    min-width: 85%;
     background-color: #e6a709;
     border: none;
   }

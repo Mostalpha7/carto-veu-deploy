@@ -4,8 +4,12 @@
       <div class="col-md-6">
         <p class="font-weight-bold">Publications per year</p>
       </div>
-      <div class="col-md-3">
-        <select v-model="activeData" @change="filterData" class="form-control">
+      <div class="col-md-4">
+        <select
+          v-model="activeData"
+          @change="filterData"
+          class="form-control form-select"
+        >
           <option value="beforeAndDuring" disabled selected
             >Select Period</option
           >
@@ -28,7 +32,6 @@ export default {
   data() {
     return {
       activeData: "beforeAndDuring",
-      // chartData: [["Year", "Before", "During", "After"]],
 
       chartOptions: {
         height: 500,
@@ -42,7 +45,6 @@ export default {
       beforeAndDuring: [["Year", "Before", "During"]],
       beforeAndAfter: [["Year", "Before", "After"]],
       duringAndAfter: [["Year", "During", "After"]],
-
       startDate: 2010,
     };
   },
@@ -95,9 +97,6 @@ export default {
       newArr.push(duringItem);
       newArr.push(afterItem);
 
-      // this.chartData.push(newArr);
-      // this.allData.push(newArr);
-
       // for only beforeAndDuring
       let be4andDuringItem = [];
       be4andDuringItem.push(`${this.startDate}`, beforeItem, duringItem);
@@ -117,4 +116,18 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.form-select {
+  cursor: pointer;
+  font-size: 0.9rem;
+  &:hover {
+    background-color: #e6a709;
+    color: #fff;
+  }
+  option {
+    background-color: #fff !important;
+    color: #333;
+    height: 10px;
+  }
+}
+</style>

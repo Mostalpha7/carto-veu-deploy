@@ -2,15 +2,16 @@
   <div class="dashboard">
     <Banner />
     <div class="boxed mt-5">
-      <div class=" curveBorder p-4">
-        <FormFilter
-          v-on:gender="Gender"
-          v-on:cohort="Cohort"
-          v-on:hostInstitituioninstitutionof="HostInstitituioninstitutionof"
-          v-on:search="Search"
-          v-on:homeinstitution="Homeinstitution"
-        />
-
+      <div class="curveBorder p-4">
+        <div class="">
+          <FormFilter
+            v-on:gender="Gender"
+            v-on:cohort="Cohort"
+            v-on:hostInstitituioninstitutionof="HostInstitituioninstitutionof"
+            v-on:search="Search"
+            v-on:homeinstitution="Homeinstitution"
+          />
+        </div>
         <Loading v-if="loading" class="my-5 text-center" />
         <FilterBody v-else :topData="topData" :others="others" />
       </div>

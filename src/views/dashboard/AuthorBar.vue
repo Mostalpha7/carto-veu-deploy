@@ -1,13 +1,13 @@
 <template>
   <div>
-    <p class="font-weight-bold">Author fellows per host institution</p>
+    <p class="font-weight-bold">Author Fellows Per Host Institution</p>
     <GChart type="PieChart" :data="chartData" :options="chartOptions" />
   </div>
 </template>
 
 <script>
 import { GChart } from "vue-google-charts";
-
+import { colors } from "@/resource";
 export default {
   components: { GChart },
   data() {
@@ -20,7 +20,7 @@ export default {
           subtitle: "Sales, Expenses, and Profit: 2014-2017",
         },
         height: 500,
-        colors: ["#8E5301", "#EAB217", "#FBA16F"],
+        colors,
         chartArea: { width: "70%", height: "80%", gridlines: "white" },
         enableInteractivity: true,
         orientation: "horizontal",

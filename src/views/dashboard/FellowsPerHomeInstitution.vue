@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p class="font-weight-bold">Author fellows per home institution</p>
+    <p class="font-weight-bold">Author Fellows Per Home Institution</p>
     <GChart type="PieChart" :data="chartData" :options="chartOptions" />
   </div>
 </template>

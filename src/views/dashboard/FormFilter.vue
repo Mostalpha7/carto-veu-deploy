@@ -1,20 +1,7 @@
 <template>
   <div>
     <div class="mt-4">
-      <div class="row no-gutters align-items-end justify-content-between">
-        <div class="form-group col-md-2">
-          <select
-            v-model="gender"
-            @change="Gender"
-            id="inputState"
-            class="form-control form-select"
-          >
-            <option value="*" selected>Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="male&amp;female">Both</option>
-          </select>
-        </div>
+      <div class="row no-gutters align-items-end justify-content-around">
         <div class="form-group col-md-2">
           <select
             v-model="homeinstitution"
@@ -74,6 +61,19 @@
         </div>
         <div class="form-group col-md-2">
           <select
+            v-model="gender"
+            @change="Gender"
+            id="inputState"
+            class="form-control form-select"
+          >
+            <option value="*" selected>Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="male&amp;female">Both</option>
+          </select>
+        </div>
+        <div class="form-group col-md-2">
+          <select
             v-model="cohort"
             @change="Cohort"
             class="form-control form-select"
@@ -91,8 +91,14 @@
             <option value="10">10</option>
           </select>
         </div>
-        <div class="form-group col-md-3">
-          <button @click="Search" class="btn btn-secondary">Filter</button>
+        <div class="form-group col-md-2">
+          <input
+            class="form-control bg-warning  "
+            type="submit"
+            name="filter"
+            placeholder="Filter"
+            @click="Search"
+          />
         </div>
       </div>
     </div>

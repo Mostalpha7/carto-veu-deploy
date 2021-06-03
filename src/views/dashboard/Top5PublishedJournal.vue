@@ -3,13 +3,13 @@
     <p class="font-weight-bold">Top five Journals fellows publish</p>
     <div>
       <div
-        class="card shadow mb-1"
+        class="mb-1"
         v-for="(item, index) of topJournalsPublished"
         :key="index"
       >
         <div class="card-body p-2 pb-1">
           <p class="m-0 font-weight-bold">{{ index + 1 }}. {{ item._id }}</p>
-          <span class="ml-2">{{ item.count }} publications</span>
+          <span class="ml-3 small">{{ item.count }} publications</span>
         </div>
       </div>
     </div>
